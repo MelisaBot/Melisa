@@ -4,5 +4,9 @@ html
     link(rel="SHORTCUT ICON", href="/images/logo melisa.png", type="favicon/ico")
     title Melisa
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js")
+    script(src="/javascripts/sugerencias.js")
+  body(ng-app="mlapp")
+
+     block content
+
