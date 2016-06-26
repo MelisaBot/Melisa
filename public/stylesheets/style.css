@@ -9,6 +9,15 @@ body {
     height: 400px;
 }
 
+.logoPrincipal {
+    width: 127px;
+    height: 87px;
+    margin-bottom: 0;
+    padding-bottom:0;
+
+}
+
+
 #container {
     width: 100%;
     height: 600px;
@@ -20,6 +29,7 @@ h3 {
     text-align: left;
     padding-left: 25%;
     font-weight: normal;
+    vertical-align: middle;
 }
 #primary {
     float: left;
@@ -60,6 +70,8 @@ a {
 h1{
 	font-size: 50px;
   font-family:'Open Sans';
+    margin-top: 0;
+    padding-top:0;
 }
 ul { list-style-type: none;
   font-size: 35px;
@@ -74,4 +86,25 @@ ul { list-style-type: none;
 }
 b{
   color:#f1255a;
+}
+.vmiddle{
+    padding-top:5px;
+}
+.col{
+    height: 150px;
+}
+.col-one{
+    width: 30%;
+}
+.col-two{
+    width:70%;
+}
+#thumbnail {
+    padding-right:20px;
+    width: 32px;
+    height: 32px;
+    float: left;
+    display: inline-block;
+    padding-left: 22%;
+    vertical-align: middle;
 }

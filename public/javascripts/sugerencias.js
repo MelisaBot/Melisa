@@ -3,6 +3,22 @@ var URL_LUIS = 'https://api.projectoxford.ai/luis/v1/application?id=07f167d0-e82
 
 myApp.controller('mlcontroller', function($scope,$http) {
 
+        $http.get('http://localhost:3000/publication')
+            .then(function(response){
+                console.log(response);
+            })
+
+    $http.get('http://localhost:3000/publication')
+        .then(function(response){
+            $scope.titulo=response.data.title;
+        })
+
+    $http.get('http://localhost:3000/publication')
+        .then(function(response){
+            $scope.thumbnail=response.data.thumbnail;
+        })
+
+
     $scope.askMelisa = function(query){
       if (query.length <4 ) {
         $scope.resp ='';
@@ -64,10 +80,22 @@ myApp.controller('mlcontroller', function($scope,$http) {
           respCB(null,"Todos los productos incluyen 6 meses de garantia");
           }
               break;
+          case 'PreguntandoMediosDePago':
+          {
+
+              respCB(null,"Aceptamos MercadoPago, Visa, Mastercard y PagoFacil.");
+          }
+              break;
+          case 'PreguntandoPorLugaresDeEnvios':
+          {
+
+              respCB(null,"Hacemos envios a todo Capital Federal y GBA Norte.");
+          }
+              break;
           case 'Insulto':
         {
 
-          respCB(null,"Disculpe, podria comunicarse educadamente?");
+          respCB(null,"");
           }
               break;
           case 'PreguntandoPorAccesorio':

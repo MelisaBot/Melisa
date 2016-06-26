@@ -2,8 +2,10 @@ extends layout
 
 block content
         .ml(ng-controller="mlcontroller")
+            //img(src="images/Logo melisa1.png" class="logoPrincipal")
             h1 melisa
-            h3 Articulo: "Iphone 4G Nuevo"
+            img(ng-src="{{thumbnail}}" id="thumbnail")
+            h3.vmiddle Articulo: "{{titulo}}"
             img(src="images/MElisa icon.png").img-icon
             input(placeholder="Hola!, de este articulo que quéres saber?", ng-model="query" ng-change="askMelisa(query)" ng-model-options='{ debounce: 1000 }' type="text")
             ul
@@ -11,5 +13,8 @@ block content
                   {{resp}}
                   li
                     {{price | currency}}
-
+            .col-one
+                sdfdf
+            .col-two
+                sfddffg
 h2 Item: Celular Samsung G3
