@@ -7,7 +7,7 @@ var ml = require('../lib/meli/connect.js')
 router.get('/', function(req, res, next) {
   console.log(ml);
 
-  ml.get('sites/MLA/categories', function (err, res2) {
+  ml.get('/items/MLA625382680/', function (err, res2) {
 
       res.send(res2);
   });
