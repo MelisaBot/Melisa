@@ -95,7 +95,7 @@ myApp.controller('mlcontroller', function($scope,$http) {
                   break;
 
           default :{
-            respCB(null,"Melisa no entiende.");
+            respCB(null,"");
           }
             break;
 
