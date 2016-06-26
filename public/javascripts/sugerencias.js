@@ -1,5 +1,5 @@
 var myApp = angular.module('mlapp', []);
-var URL_LUIS = 'https://api.projectoxford.ai/luis/v1/application?id=07f167d0-e823-4a36-b546-1502fe71c0c9&subscription-key=d6e2344416744f90b1a325501fd40a21&q=';
+var URL_LUIS = 'https://api.projectoxford.ai/luis/v1/application?id=07f167d0-e823-4a36-b546-1502fe71c0c9&subscription-key=d3621ff1310749a2bbf1fd81ae338c2a&q=';
 
 myApp.controller('mlcontroller', function($scope,$http) {
 
@@ -43,10 +43,13 @@ myApp.controller('mlcontroller', function($scope,$http) {
           respCB(null,"Si, el producto liberado.");
           }
               break;
-        case 'PreguntandoMediosDeEnvio"':
+        case 'PreguntandoMediosDeEnvio':
         {
-          var metodoEnvio=getMetodoEnvio();
-          respCB(null,"El metodo de envio es ");
+          console.log('metodo de envio');
+          getMetodoEnvio(function(err,metodo){
+              respCB(null,"El metodo de envio "+ metodo);
+          });
+
           }
               break;
           case 'PreguntandoPorGarantia':
@@ -113,10 +116,14 @@ myApp.controller('mlcontroller', function($scope,$http) {
   }
 
   function getMetodoEnvio(cb){
+    console.log('getting envio');
     $http.get('http://localhost:3000/publication')
       .then(function(response){
-        console.log(response);
-          cb(null,response.data.shipping.mode)
+        var especified = response.data.shipping.mode;
+        if (especified=='not_specified') {
+          especified = 'no esta especificado.'
+        }
+          cb(null,especified)
       })
 
   }
