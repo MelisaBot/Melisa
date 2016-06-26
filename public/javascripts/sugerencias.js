@@ -76,13 +76,13 @@ myApp.controller('mlcontroller', function($scope,$http) {
           case 'Saludar':
         {
 
-          respCB(null,"Hola! Que tal?");
+          respCB(null,"Hola! :)");
           }
               break;
           case 'halagar':
         {
 
-          respCB(null,"Gracias, pero prefiero que nos enfoquemos en los negocios.");
+          respCB(null,"Gracias!, es muy lindo lo que me decis");
           }
               break;
 
