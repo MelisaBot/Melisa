@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1 Melisa
-  input(placeholder="¿Qué querés hacer?")
+        .ml(ng-controller="mlcontroller")
+            h1 Melisa
+            input(placeholder="Hola ¿Qué querés saber sobre este producto?", ng-model="query" type="text")
+            ul
+                li(ng-repeat="city in cities| filter:query")
+                    {{city}}
+                li(id="resp")
