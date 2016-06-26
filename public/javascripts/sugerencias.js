@@ -12,13 +12,81 @@ myApp.controller('mlcontroller', function($scope,$http) {
 
       $http.get(fullPath)
         .then(function(response) {
-            $http.get('http://localhost:3000/publication')
-              .then(function(response){
-                console.log(response);
-                  $scope.price = response.data.price;
-              })
-              $scope.resp = response.data.intents[0].intent;
+
+          var responseFrindly=getRespuesta(response.data.intents[0].intent);
+            $scope.resp = responseFrindly;
+
+
         });
+
+    }
+
+      function getRespuesta(intention){
+      switch(intention){
+        case 'PreguntandoPrecio':
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+        case 'PreguntandoSiEsLiberado':
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+        case 'PreguntandoMediosDeEnvio"':
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPorGarantia':
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPrecio':
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPrecio':
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPrecio':
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPrecio':
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPrecio':
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+
     }
   }
+
+
+  function getPrecio(){
+    return 40;
+  }
+
+  }
+
+
 );
