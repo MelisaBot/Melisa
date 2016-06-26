@@ -3,8 +3,7 @@ extends layout
 block content
         .ml(ng-controller="mlcontroller")
             h1 Melisa
-            input(placeholder="Hola ¿Qué querés saber sobre este producto?", ng-model="query" type="text")
+            input(placeholder="Hola ¿Qué querés saber sobre este producto?", ng-model="query" ng-change="askMelisa(query)" type="text")
             ul
-                li(ng-repeat="city in cities| filter:query")
-                    {{city}}
                 li(id="resp")
+                  {{resp}}

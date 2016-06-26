@@ -14,7 +14,6 @@
     "jade": "~1.11.0",
     "luis-adapter": "0.0.51",
     "morgan": "~1.6.1",
-    "restify": "^4.1.1",
     "serve-favicon": "~2.3.0"
   }
 }
