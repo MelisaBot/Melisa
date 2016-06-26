@@ -2,7 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #FFF059;
-  color: #03B;
+  color: #2d3277;
   text-align: center;
 }
 
@@ -17,7 +17,19 @@ a {
 }
 h1{
 	font-size: 50px;
+  font-family:'Open Sans';
 }
 ul { list-style-type: none;
   font-size: 35px;
+  color:white;
  }
+ .img-icon {
+    width: 64px;
+    height:64px;
+    display: inline;
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+b{
+  color:#f1255a;
+}
