@@ -13,77 +13,112 @@ myApp.controller('mlcontroller', function($scope,$http) {
       $http.get(fullPath)
         .then(function(response) {
 
-          var responseFrindly=getRespuesta(response.data.intents[0].intent);
-            $scope.resp = responseFrindly;
+          getRespuesta(response.data.intents[0].intent,function(err,res){
+            console.log(res);
+            $scope.resp = res;
+
+          });
 
 
         });
 
     }
 
-      function getRespuesta(intention){
+      function getRespuesta(intention,respCB){
+
+        console.log('INTENTION-->'+intention);
       switch(intention){
         case 'PreguntandoPrecio':
         {
-          var precio=getPrecio();
-          return "El Precio es $"+precio
-          }
+
+          getPrecio(function(err,precio){
+              respCB(null,"El Precio es $"+precio)
+          });
+
+        }
               break;
         case 'PreguntandoSiEsLiberado':
         {
-          var precio=getPrecio();
-          return "El Precio es $"+precio
+
+          respCB(null,"Si, el producto liberado.");
           }
               break;
         case 'PreguntandoMediosDeEnvio"':
         {
-          var precio=getPrecio();
-          return "El Precio es $"+precio
+          var metodoEnvio=getMetodoEnvio();
+          respCB(null,"El metodo de envio es ");
           }
               break;
           case 'PreguntandoPorGarantia':
         {
-          var precio=getPrecio();
-          return "El Precio es $"+precio
+
+          respCB(null,"Todos los productos incluyen 6 meses de garantia");
           }
               break;
-          case 'PreguntandoPrecio':
+          case 'Insulto':
         {
-          var precio=getPrecio();
-          return "El Precio es $"+precio
+
+          respCB(null,"Disculpe, podria comunicarse educadamente?");
           }
               break;
-          case 'PreguntandoPrecio':
+          case 'PreguntandoPorAccesorio':
         {
-          var precio=getPrecio();
-          return "El Precio es $"+precio
+
+          respCB(null,"Solo incluyen los accesorios propios del equipo. ");
           }
               break;
-          case 'PreguntandoPrecio':
+          case 'Saludar':
         {
-          var precio=getPrecio();
-          return "El Precio es $"+precio
+
+          respCB(null,"Hola! Que tal?");
           }
               break;
-          case 'PreguntandoPrecio':
+          case 'halagar':
         {
-          var precio=getPrecio();
-          return "El Precio es $"+precio
+
+          respCB(null,"Gracias, pero prefiero que nos enfoquemos en los negocios.");
           }
               break;
-          case 'PreguntandoPrecio':
+
+          case 'PreguntandoColor':
         {
-          var precio=getPrecio();
-          return "El Precio es $"+precio
+
+          respCB(null,"Los colores disponibles son Blanco, Azul y Rojo.");
           }
               break;
+
+              case 'PreguntandoSiPermuta':
+            {
+
+              respCB(null,"No permuto, Gracias.");
+              }
+                  break;
+
+          default :{
+            respCB(null,"Melisa no entiende.");
+          }
+            break;
 
     }
   }
 
 
-  function getPrecio(){
-    return 40;
+  function getPrecio(cb){
+    $http.get('http://localhost:3000/publication')
+      .then(function(response){
+        console.log(response);
+          cb(null,response.data.price)
+      })
+
+  }
+
+  function getMetodoEnvio(cb){
+    $http.get('http://localhost:3000/publication')
+      .then(function(response){
+        console.log(response);
+          cb(null,response.data.shipping.mode)
+      })
+
   }
 
   }
