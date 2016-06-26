@@ -94,6 +94,13 @@ myApp.controller('mlcontroller', function($scope,$http) {
 
           respCB(null,"Los colores disponibles son Blanco, Azul y Rojo.");
           }
+
+          break;
+          case 'PreguntandoPorFeatures':
+          {
+
+              respCB(null,"Cuenta con flash en camara frontal y trasera. Wifi, 4G, Radio y Bluetooh.");
+          }
               break;
 
               case 'PreguntandoSiPermuta':
