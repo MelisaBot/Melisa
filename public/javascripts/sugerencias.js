@@ -32,7 +32,7 @@ myApp.controller('mlcontroller', function($scope,$http) {
         {
 
           getPrecio(function(err,precio){
-              respCB(null,"El Precio es $"+precio)
+              respCB(null,"El Precio es de $"+precio)
           });
 
         }
