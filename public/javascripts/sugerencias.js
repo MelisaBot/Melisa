@@ -4,11 +4,14 @@ var URL_LUIS = 'https://api.projectoxford.ai/luis/v1/application?id=07f167d0-e82
 myApp.controller('mlcontroller',  function($scope,$http) {
 
     $scope.askMelisa = function(query){
+      if (query.length <4 ) {
+        return;
+      }
       var fullPath = URL_LUIS+query;
-      console.log(fullPath);
+
       $http.get(fullPath)
         .then(function(response) {
-          console.log(response.data.intents[0].intent);
+            console.log(response.data.intents[0].intent);
             $scope.resp = response.data.intents[0].intent;
         });
     }
