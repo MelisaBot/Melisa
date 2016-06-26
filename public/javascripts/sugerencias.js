@@ -42,6 +42,12 @@ myApp.controller('mlcontroller', function($scope,$http) {
 
           respCB(null,"Si, el producto liberado.");
           }
+            break;
+          case 'PreguntandoPorFeatures':
+          {
+
+              respCB(null,"Cuenta con flash en camara frontal y trasera. Wifi, 4G, Radio y Bluetooh.");
+          }
               break;
         case 'PreguntandoMediosDeEnvio':
         {
@@ -73,13 +79,13 @@ myApp.controller('mlcontroller', function($scope,$http) {
           case 'Saludar':
         {
 
-          respCB(null,"Hola! Que tal?");
+          respCB(null,"Hola! :)");
           }
               break;
           case 'halagar':
         {
 
-          respCB(null,"Gracias, pero prefiero que nos enfoquemos en los negocios.");
+          respCB(null,"Gracias!, es muy lindo lo que me decis");
           }
               break;
 
@@ -98,7 +104,7 @@ myApp.controller('mlcontroller', function($scope,$http) {
                   break;
 
           default :{
-            respCB(null,"Melisa no entiende.");
+            respCB(null,"");
           }
             break;
 

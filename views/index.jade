@@ -3,10 +3,13 @@ extends layout
 block content
         .ml(ng-controller="mlcontroller")
             h1 melisa
+            h3 Articulo: "Iphone 4G Nuevo"
             img(src="images/MElisa icon.png").img-icon
-            input(placeholder="Hola ¿Qué estás buscando?", ng-model="query" ng-change="askMelisa(query)" ng-model-options='{ debounce: 1000 }' type="text")
+            input(placeholder="Hola!, de este articulo que quéres saber?", ng-model="query" ng-change="askMelisa(query)" ng-model-options='{ debounce: 1000 }' type="text")
             ul
                 li(id="resp")
                   {{resp}}
                   li
                     {{price | currency}}
+
+h2 Item: Celular Samsung G3
