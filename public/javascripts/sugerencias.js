@@ -8,9 +8,78 @@ myApp.controller('mlcontroller',  function($scope,$http) {
       console.log(fullPath);
       $http.get(fullPath)
         .then(function(response) {
-          console.log(response.data.intents[0].intent);
-            $scope.resp = response.data.intents[0].intent;
+          var responseFrindly=getRespuesta(response.data.intents[0].intent);
+            $scope.resp = responseFrindly;
         });
+
     }
+
+      function getRespuesta(intention){
+      switch(intention){
+        case 'PreguntandoPrecio': 
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+        case 'PreguntandoSiEsLiberado': 
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+        case 'PreguntandoMediosDeEnvio"': 
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPorGarantia': 
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPrecio': 
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPrecio': 
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPrecio': 
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPrecio': 
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+          case 'PreguntandoPrecio': 
+        {
+          var precio=getPrecio();
+          return "El Precio es $"+precio
+          }
+              break;
+        
+    } 
   }
+
+
+  function getPrecio(){
+    return 40;
+  }
+
+  }
+
+
 );
